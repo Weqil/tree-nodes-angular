@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+@import url("../public/styles/variables.scss");
+@import url("../public//styles//reset.scss");
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-family);
+  padding: 1rem;
+}
