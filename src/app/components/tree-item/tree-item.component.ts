@@ -12,6 +12,7 @@ import { NgClass } from '@angular/common';
 export class TreeItemComponent {
   @Input() node!: INode;
   @Input() disabled: boolean = false;
+  @Input() open:boolean = false
   @Output() isOpen = new EventEmitter<INode>();
   @Output() idButtonClicked = new EventEmitter<INode>();
   openChange() {
@@ -21,8 +22,6 @@ export class TreeItemComponent {
     this.idButtonClicked.emit(this.node);
   }
   get itemStyles(): string[] {
-    return [
-      this.disabled ? 'disabled':''
-    ]
+    return [this.disabled ? 'disabled' : ''];
   }
 }

@@ -3,9 +3,22 @@
   <div [ngClass]="itemStyles" (click)="openChange()" class="tree-node">
     <div class="tree-node__id"># ID: {{ node.id }}</div>
   </div>
-  <div (click)="idButtonClickedChange()" class="show-id-button">
-    <app-standart-button buttonText="show id"></app-standart-button>
+  <div class="item-buttons">
+    <app-standart-button
+      (click)="idButtonClickedChange()"
+      buttonText="show id"
+    ></app-standart-button>
+    @if (node.children.length) {
+    <button
+      (click)="openChange()"
+      [ngClass]="{
+        'arrow-button':!open,
+        'arrow-button--active':open,
+    }"
+    >
+      <img src="./icons/arrow.svg" alt="" />
+    </button>
+    }
   </div>
 </div>
-
 }

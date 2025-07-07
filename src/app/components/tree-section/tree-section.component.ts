@@ -28,6 +28,7 @@ import { StandartButtonComponent } from '../UI/standart-button/standart-button.c
 export class TreeSectionComponent {
   @Input() parentNode: null | INode = null;
   @Input() nodes?: INode[];
+  
   openNodes = signal<{ [title: string]: boolean }>({});
 
   openTree(node: INode) {
