@@ -1,0 +1,14 @@
+.tree {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  &__has-parent {
+    margin-left: var(--standart-gap);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+}
+.tree-item-wrapper {
+  margin-top: 1rem;
+}

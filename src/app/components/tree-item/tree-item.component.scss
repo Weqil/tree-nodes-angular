@@ -1,0 +1,27 @@
+.tree-node {
+  display: flex;
+  align-items: center;
+  max-width: 300px;
+  padding: 6px 12px;
+  background-color: var(--light-color-background);
+  color: var(--color-text);
+  font-family: var(--font-family);
+  font-size: 14px;
+  border-left: 2px solid #1e1e1e;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.tree-node__wrapper {
+  position: relative;
+  max-width: 300px;
+}
+.show-id-button {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  right: 0.5rem;
+}

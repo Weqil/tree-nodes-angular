@@ -1,0 +1,16 @@
+.standart-button {
+  cursor: pointer;
+  font-size: 12px;
+  border: none;
+  border-radius: 6px;
+  background: var(--color-white);
+  padding: 0.2rem;
+}
+.standart-button:active {
+  cursor: pointer;
+  font-size: 12px;
+  border: none;
+  border-radius: 6px;
+  background: #ddf7f9;
+  padding: 0.2rem;
+}

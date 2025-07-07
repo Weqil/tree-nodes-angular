@@ -1,9 +1,11 @@
 :root {
   /* Colors */
   --color-white: #fff;
-  --color-light-gray: #b4b4b4;
+  --color-light-gray: #545454;
   --color-dark: #0c0c0c;
   --color-gray: #0e0e0e;
+  --yelow-color: #ffd900;
+  --blue-color: #2357ec;
 
   /* Typography */
   --font-family: "Inter", "Segoe UI", "Roboto", sans-serif;
@@ -11,4 +13,8 @@
 
   /* Backgrounds */
   --color-background: var(--color-gray);
+  --light-color-background: var(--blue-color);
+
+  /* Gaps */
+  --standart-gap: 1rem;
 }
