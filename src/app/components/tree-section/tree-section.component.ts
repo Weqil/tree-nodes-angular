@@ -29,15 +29,15 @@ import { count } from 'rxjs';
 export class TreeSectionComponent {
   @Input() parentNode: null | INode = null;
   @Input() nodes?: INode[];
-  @Input() openAllChild: boolean = false
-  @Input() showCount:boolean = false
-  @Input() showIdButtonsInItems:boolean = true
+  @Input() openAllChild: boolean = false;
+  @Input() showCount: boolean = false;
+  @Input() showIdButtonsInItems: boolean = true;
 
   @Input() openNodes = signal<{ [title: string]: boolean }>({});
-  openNodesCount:{ [title: string]: number } = {}
-  count:number = 0
-  tempSignal = signal<{ [title: string]: boolean }>({})
-  
+  openNodesCount: { [title: string]: number } = {};
+  count: number = 0;
+  tempSignal = signal<{ [title: string]: boolean }>({});
+
   openTree(node: INode) {
     this.openNodes.update((opensNodes) => {
       return {
@@ -61,26 +61,22 @@ export class TreeSectionComponent {
     }
   }
 
-  getCountItems(node: INode){
-  if(node.children){
-    node.children.forEach((node: INode) => {
-        this.getCountItems(node)
-    });
-   }
-   this.count += node.children.length
+  getCountItems(node: INode) {
+    if (node.children) {
+      node.children.forEach((node: INode) => {
+        this.getCountItems(node);
+      });
+    }
+    this.count += node.children.length;
   }
 
-  getAllCountsItem(node:INode){
-   let count = node.children.length
+  getAllCountsItem(node: INode) {
+    let count = node.children.length;
     if (node.children) {
-      node.children.forEach((node:INode)=>{
-        count += this.getAllCountsItem(node)
-      })
+      node.children.forEach((node: INode) => {
+        count += this.getAllCountsItem(node);
+      });
     }
     return count;
   }
-
-  
-
-  logParent() {}
 }

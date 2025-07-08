@@ -9,7 +9,7 @@
       (idButtonClicked)="showId($event)"
       (isOpen)="openAllChild ? getAllChildNodes($event) : openTree($event)"
       [node]="node"
-      [countNodes]='getAllCountsItem(node)'
+      [countNodes]="getAllCountsItem(node)"
     ></app-tree-item>
   </div>
   @if (node.children && checkOpen(node)) {

@@ -3,11 +3,11 @@
   width: 300px;
   transition: 0.3s all;
   border-radius: 4px;
-  padding: 0  var(--standart-padding) var(--standart-padding);
+  padding: 0 var(--standart-padding) var(--standart-padding);
 }
 
-main{
-    display: flex;
-    flex-direction: column;
-    gap:2rem;
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }

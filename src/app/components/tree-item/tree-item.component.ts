@@ -12,10 +12,10 @@ import { NgClass } from '@angular/common';
 export class TreeItemComponent {
   @Input() node!: INode;
   @Input() disabled: boolean = false;
-  @Input() open:boolean = false
-  @Input() showIdButton:boolean = true
-  @Input() showCount:boolean = false
-  @Input() countNodes: number = 0
+  @Input() open: boolean = false;
+  @Input() showIdButton: boolean = true;
+  @Input() showCount: boolean = false;
+  @Input() countNodes: number = 0;
   @Output() isOpen = new EventEmitter<INode>();
   @Output() idButtonClicked = new EventEmitter<INode>();
   openChange() {

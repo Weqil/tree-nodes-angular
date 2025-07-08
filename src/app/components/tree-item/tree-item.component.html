@@ -5,16 +5,20 @@
   </div>
   <div class="item-buttons">
     @if (showIdButton) {
-    <app-standart-button (click)="idButtonClickedChange()" buttonText="show id"></app-standart-button>
-    }
-    @if (showCount && countNodes !== 0) {
-          <span>{{countNodes}}</span>
-    }
-    @if (node.children.length) {
-    <button (click)="openChange()" [ngClass]="{
+    <app-standart-button
+      (click)="idButtonClickedChange()"
+      buttonText="show id"
+    ></app-standart-button>
+    } @if (showCount && countNodes !== 0) {
+    <span>{{ countNodes }}</span>
+    } @if (node.children.length) {
+    <button
+      (click)="openChange()"
+      [ngClass]="{
         'arrow-button':!open,
         'arrow-button--active':open,
-    }">
+    }"
+    >
       <img src="./icons/arrow.svg" alt="" />
     </button>
     }
