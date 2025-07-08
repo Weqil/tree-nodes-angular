@@ -30,6 +30,7 @@
 .arrow-button {
   cursor: pointer;
   background: none;
+  transition: 0.5s all;
   border: none;
   transform: rotate(180deg);
   img {
@@ -40,7 +41,10 @@
   &--active {
     background: none;
     border: none;
+    cursor: pointer;
     transform: rotate(0deg);
+    transition: 0.5s all;
+
     img {
       width: 1.5rem;
       filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(0%)

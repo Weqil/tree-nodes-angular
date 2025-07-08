@@ -28,7 +28,7 @@ import { StandartButtonComponent } from '../UI/standart-button/standart-button.c
 export class TreeSectionComponent {
   @Input() parentNode: null | INode = null;
   @Input() nodes?: INode[];
-  
+
   openNodes = signal<{ [title: string]: boolean }>({});
 
   openTree(node: INode) {
@@ -38,12 +38,24 @@ export class TreeSectionComponent {
         [node.title]: !opensNodes[node.title],
       };
     });
+    console.log(this.openNodes());
+    console.log('открываю дерево');
   }
   showId(event: INode) {
     console.log(`нажали на узел ID ${event.id}`);
   }
   checkOpen(node: INode) {
+    console.log(node.title + ' ' + this.openNodes()[node.title]);
     return !!this.openNodes()[node.title];
+  }
+  getAllChildNodes(node: INode) {
+    if (node.children) {
+      console.log(node.id);
+      this.openTree(node);
+      node.children.forEach((node: INode) => {
+        this.getAllChildNodes(node);
+      });
+    }
   }
   logParent() {}
 }

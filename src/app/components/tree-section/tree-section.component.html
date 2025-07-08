@@ -1,7 +1,13 @@
 <div [class]="!parentNode ? 'tree' : 'tree__has-parent'">
   @for (node of nodes; track $index) {
   <div class="tree-item-wrapper">
-    <app-tree-item [disabled]="node.is_deleted" [open]="checkOpen(node)" (idButtonClicked)="showId($event)" (isOpen)="openTree($event)" [node]="node"></app-tree-item>
+    <app-tree-item
+      [disabled]="node.is_deleted"
+      [open]="checkOpen(node)"
+      (idButtonClicked)="showId($event)"
+      (isOpen)="getAllChildNodes($event)"
+      [node]="node"
+    ></app-tree-item>
   </div>
   @if (node.children && checkOpen(node)) {
   <app-tree-section
