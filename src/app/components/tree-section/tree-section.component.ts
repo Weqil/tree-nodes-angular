@@ -45,7 +45,6 @@ export class TreeSectionComponent {
         [node.title]: !opensNodes[node.title],
       };
     });
-    console.log(this.openNodes());
   }
   showId(event: INode) {
     console.log(`нажали на узел ID ${event.id}`);
@@ -55,7 +54,6 @@ export class TreeSectionComponent {
   }
   getAllChildNodes(node: INode) {
     if (node.children) {
-      console.log(node.id);
       this.openTree(node);
       node.children.forEach((node: INode) => {
         this.getAllChildNodes(node);
@@ -73,10 +71,16 @@ export class TreeSectionComponent {
   }
 
   getAllCountsItem(node:INode){
-    this.getCountItems(node)
-    return this.count
-    
+   let count = node.children.length
+    if (node.children) {
+      node.children.forEach((node:INode)=>{
+        count += this.getAllCountsItem(node)
+      })
+    }
+    return count;
   }
+
+  
 
   logParent() {}
 }
