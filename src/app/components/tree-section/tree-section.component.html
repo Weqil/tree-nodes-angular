@@ -3,14 +3,20 @@
   <div class="tree-item-wrapper">
     <app-tree-item
       [disabled]="node.is_deleted"
+      [showIdButton]="showIdButtonsInItems"
       [open]="checkOpen(node)"
+      [showCount]="showCount"
       (idButtonClicked)="showId($event)"
-      (isOpen)="getAllChildNodes($event)"
+      (isOpen)="openAllChild ? getAllChildNodes($event) : openTree($event)"
       [node]="node"
+      [countNodes]='getAllCountsItem(node)'
     ></app-tree-item>
   </div>
   @if (node.children && checkOpen(node)) {
   <app-tree-section
+    [openNodes]="openNodes"
+    [showCount]="showCount"
+    [showIdButtonsInItems]="showIdButtonsInItems"
     @fadeInOut
     [parentNode]="node"
     [nodes]="node.children"

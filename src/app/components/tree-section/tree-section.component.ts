@@ -1,9 +1,10 @@
-import { Component, Input, signal } from '@angular/core';
+import { Component, input, Input, signal } from '@angular/core';
 import { INode } from '../../models/tree-nodes.interface';
 import { NgClass } from '@angular/common';
 import { TreeItemComponent } from '../tree-item/tree-item.component';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { StandartButtonComponent } from '../UI/standart-button/standart-button.component';
+import { count } from 'rxjs';
 
 @Component({
   selector: 'app-tree-section',
@@ -28,9 +29,15 @@ import { StandartButtonComponent } from '../UI/standart-button/standart-button.c
 export class TreeSectionComponent {
   @Input() parentNode: null | INode = null;
   @Input() nodes?: INode[];
+  @Input() openAllChild: boolean = false
+  @Input() showCount:boolean = false
+  @Input() showIdButtonsInItems:boolean = true
 
-  openNodes = signal<{ [title: string]: boolean }>({});
-
+  @Input() openNodes = signal<{ [title: string]: boolean }>({});
+  openNodesCount:{ [title: string]: number } = {}
+  count:number = 0
+  tempSignal = signal<{ [title: string]: boolean }>({})
+  
   openTree(node: INode) {
     this.openNodes.update((opensNodes) => {
       return {
@@ -39,13 +46,11 @@ export class TreeSectionComponent {
       };
     });
     console.log(this.openNodes());
-    console.log('открываю дерево');
   }
   showId(event: INode) {
     console.log(`нажали на узел ID ${event.id}`);
   }
   checkOpen(node: INode) {
-    console.log(node.title + ' ' + this.openNodes()[node.title]);
     return !!this.openNodes()[node.title];
   }
   getAllChildNodes(node: INode) {
@@ -57,5 +62,21 @@ export class TreeSectionComponent {
       });
     }
   }
+
+  getCountItems(node: INode){
+  if(node.children){
+    node.children.forEach((node: INode) => {
+        this.getCountItems(node)
+    });
+   }
+   this.count += node.children.length
+  }
+
+  getAllCountsItem(node:INode){
+    this.getCountItems(node)
+    return this.count
+    
+  }
+
   logParent() {}
 }
